@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage">
+    <div class="video-container">
+      <div class="title-container">
+        <div class="headline">
+
+            <h1>Likalokal</h1>
+            <h3>Don't be a tourist. Travel like an insider.</h3>
+        </div>
+      </div>
+      <div class="search-container">
+        <div class="container">
+        <%= render 'shared/search' %>
+        </div>
+      </div>
+      <div class="filter"></div>
+      <%= video_tag("/assets/images/home_video.mp4", autoplay: true, loop: true, class: "fillWidth" ) %>
+    </div>
+
+</div>

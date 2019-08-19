@@ -1,0 +1,10 @@
+ <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <%= form_tag(root_path, method: "get", class: "searchbar") do %>
+          <%= text_field_tag :city, nil, placeholder: 'City', class: 'search-city' %>
+          <%= text_field_tag :date, nil, placeholder: 'Date', "data-provide" => "datepicker" %>
+
+          <%= submit_tag "Search", class: "search-btn" %>
+        <% end %>
+      </div>
+    </div>
