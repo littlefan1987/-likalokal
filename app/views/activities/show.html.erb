@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1><%= @activity.name %></h1>
+
+      <h2><%= @activity.description %></h2>
+      <span><%= @activity.price %></span>
+      <span>Your guide is <%= @activity.user_id %></span>
+      <a href="#" class="card-activity-button">Book</a>
+      <%= link_to "Edit", edit_activity_path(@activity), class: "card-activity-button"  %>
+
+
+    </div>
+  </div>
+</div>

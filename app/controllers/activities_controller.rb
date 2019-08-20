@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
@@ -20,6 +19,10 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+  end
+
   def myactivities
     @activity = current_user.activities.order(created_at: :desc)
   end
@@ -33,12 +36,11 @@ class ActivitiesController < ApplicationController
     if activity.update(activity_params)
       redirect_to myactivities_path, notice: "Your activity was successfully updated"
     else
-      render :myactivities
+      render :edit
     end
   end
 
   private
-
 
   def set_activity
     @activity = Activity.find(params[:id])
