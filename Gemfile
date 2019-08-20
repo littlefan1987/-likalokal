@@ -31,3 +31,5 @@ end
 gem 'devise'
 
 gem 'cloudinary', '~> 1.9.1'
+
+gem 'pundit'
