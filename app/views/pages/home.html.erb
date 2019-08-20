@@ -28,7 +28,7 @@
                 <h2><%= activity.name %></h2>
                 <p><%= truncate(activity.description, :length => 100) %></p>
                 <span class="card-activity-pricing"><%= activity.price %>€</span>
-                <a href="#" class="card-activity-button">Learn More</a>
+                <%= link_to "Learn more", activity_path(activity), class: "card-activity-button"  %>
               </div>
             </div>
           <% end %>
