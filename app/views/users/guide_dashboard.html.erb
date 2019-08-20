@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Guide Dashboard</h1>
+      <h2>Mes réservations</h2>
+
+      <% @bookings.each do |booking| %>
+        <p><%= booking.photo %></p><p><%= booking.activities.name %></p><p><%= booking.group_size %></p><p><%= booking.status %></p>
+        <%= link_to "confirm","#", class: 'btn btn-primary' %>
+        <%= link_to "refuse", "#", class: 'btn btn-primary' %>
+      <% end %>
+      <h2>activities</h2>
+      <% @activities.each do |activity| %>
+        <p><%= activity.name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
