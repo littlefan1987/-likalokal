@@ -31,12 +31,19 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    @activities = current_user.activities.order(created_at: :desc)
-    activity = @activities.find(params[:id])
-    if activity.update(activity_params)
-      redirect_to myactivities_path, notice: "Your activity was successfully updated"
-    else
-      render :edit
+    respond_to do |format|
+      if @activity.update(activity_params)
+        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def destroy
+    @activity.destroy
+    respond_to do |format|
+      format.html { redirect_to activities_url, notice: 'The activity has been deleted. It was pretty boring anyway.' }
     end
   end
 
