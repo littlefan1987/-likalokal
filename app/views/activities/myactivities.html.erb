@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-3">
+      <% @activities.each do |activity| %>
+        <div class="activity-card">
+          <% activity_photo = (activity.photo ? cl_image_path(activity.photo.path) : image_path("blah.png")) %>
+          <div class="photo" style="background-image: url('<%= activity_photo %>');"><%= link_to " ", activity, class: 'link-activity' %>
+          </div>
+
+          <div class="description">
+            <h3><%= activity.name %></h3>
+            <p><%= truncate(activity.description, :length => 50) %></p>
+            <span><%= activity.price %>€</span>
+          </div>
+        </div>
+      <% end %>
+
+      <%= link_to "Create a new activity", new_activity_path, class:'btn btn-info' %>
+    </div>
+  </div>
+
+</div>
