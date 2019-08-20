@@ -12,12 +12,32 @@ Sian Ka'an Biosphere Reserve Boca Paila", category: "Hiking", price: "155.93", d
   end
 
   def show
+    @booking = BOOKINGS.find(params[:id])
   end
 
   def new
   end
 
-  def destroy
-
+  def create
   end
+
+  def edit
+  end
+
+  def update
+    @booking = BOOKINGS.find(params[:id])
+    @booking.update(params[:booking])
+  end
+
+  def destroy
+    @booking = BOOKINGS.find(params[:id])
+    @booking.destroy
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:status)
+  end
+
 end
