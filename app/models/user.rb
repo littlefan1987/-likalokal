@@ -10,13 +10,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  def guide_bookings
+  def guide_bookings # pourquoi def dans model? pourquoi pas dans controller ? quand est-il du traveller ?
     bookings = []
-
+    # comme on est dans la class user, on peut se permettre de travailler sur bookings et activities
     activities.each do |activity|
       bookings << activity.bookings
     end
 
-    return bookings.flatten!
+    return bookings.flatten! # pourquoi .flatten ?
   end
 end
