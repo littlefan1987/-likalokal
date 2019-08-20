@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Create a new activity</h1>
+
+      <%= simple_form_for @activity do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :city %>
+        <%= f.input :category %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
