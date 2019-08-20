@@ -1,10 +1,25 @@
 class ActivitiesController < ApplicationController
+  
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
     @activities = Activity.all
   end
 
+  def new
+    @activity = Activity.new
+  end
+
+  def create
+    @activity = Activity.new(activity_params)
+    @activity.user = current_user
+    if @activity.save
+      redirect_to guide_dashboard_path
+    else
+      render 'new'
+    end
+  end
+  
   def myactivities
     @activity = current_user.activities.order(created_at: :desc)
   end
@@ -23,6 +38,7 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
 
   def set_activity
     @activity = Activity.find(params[:id])
