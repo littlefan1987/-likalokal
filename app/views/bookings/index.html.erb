@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+        <h1>My bookings</h1>
+        <% @bookings.each do |id, booking| %>
+          <div class="card-product mb-3">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= booking[:name] %></h2>
+              <p><%= booking[:address] %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Date</h2>
+              <p><%= booking[:price] %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Price</h2>
+              <p><%= booking[:price] %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Status</h2>
+              <p><%= booking[:status] %></p>
+            </div>
+            <div class="card-product-infos">
+              <%= link_to 'Cancel', '#' %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
