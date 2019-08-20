@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  
+
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
@@ -19,7 +19,7 @@ class ActivitiesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def myactivities
     @activity = current_user.activities.order(created_at: :desc)
   end
