@@ -2,7 +2,15 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
-    @activities = Activity.all
+    # @activities = Activity.all
+    @activities = Activity.geocoded #returns flats with coordinates
+
+    @markers = @activities.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+      }
+    end
   end
 
   def new
@@ -21,6 +29,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @markers = [{ lat: @activity.latitude, lng: @activity.longitude }]
     @booking = Booking.new
   end
 
@@ -56,6 +65,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :price, :city, :photo, :category)
+    params.require(:activity).permit(:name, :description, :price, :address, :photo, :category)
   end
 end
