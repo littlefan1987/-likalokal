@@ -14,7 +14,7 @@
 
         <% @bookings.each do |booking| %>
           <div class="card-product mb-3">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <img src="<%= booking.activity.photo %>" />
             <div class="card-product-infos">
               <h2><%= booking.activity.name %></h2>
               <p><%= booking.activity.city %></p>
@@ -25,7 +25,7 @@
             </div>
             <div class="card-product-infos">
               <h2>Price</h2>
-              <p><%= booking.activity.price * booking[:group_size] %></p>
+              <p><%= booking.activity.price * booking[:group_size] %>€</p>
             </div>
             <div class="card-product-infos">
               <h2>Status</h2>
