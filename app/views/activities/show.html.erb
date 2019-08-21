@@ -5,12 +5,6 @@
       <div class="col-8">
         <div class="activity-show-card">
           <h1><%= @activity.name %></h1>
-          <%= link_to edit_activity_path(@activity) do %>
-            <i class="fas fa-pen"></i>
-          <% end %>
-          <%= link_to activity_path(@activity), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
         </div>
         <div class="activity-show-card">
           <p><%= @activity.description %></p>
