@@ -12,12 +12,12 @@
           </li>
         </ul>
 
-        <% @bookings.each do |id, booking| %>
+        <% @bookings.each do |booking| %>
           <div class="card-product mb-3">
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <div class="card-product-infos">
-              <h2><%= booking[:name] %></h2>
-              <p><%= booking[:address] %></p>
+              <h2><%= booking.activity.name %></h2>
+              <p><%= booking.activity.city %></p>
             </div>
             <div class="card-product-infos">
               <h2>Date</h2>
@@ -25,14 +25,18 @@
             </div>
             <div class="card-product-infos">
               <h2>Price</h2>
-              <p><%= booking[:price] %></p>
+              <p><%= booking.activity.price * booking[:group_size] %></p>
             </div>
             <div class="card-product-infos">
               <h2>Status</h2>
               <p><%= booking[:status] %></p>
             </div>
             <div class="card-product-infos">
-              <%= link_to 'Cancel', '#' %>
+              <h2>Email</h2>
+              <p><%= booking.user.email %></p>
+            </div>
+            <div class="card-product-infos">
+              <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           </div>
         <% end %>

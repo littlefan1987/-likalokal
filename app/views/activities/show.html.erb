@@ -29,8 +29,10 @@
               <span class="input-group-addon" id="basic-addon1">To:</span>
               <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
+            <!-- <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%"> -->
+            <%= link_to "Book", new_activity_booking_path(@activity), class: "btn btn-success btn-block" %>
           </form>
+
         </div>
         <div class="activity-show-card">
           <h3>Details</h3>
