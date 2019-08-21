@@ -5,12 +5,6 @@
       <div class="col-8">
         <div class="activity-show-card">
           <h1><%= @activity.name %></h1>
-          <%= link_to edit_activity_path(@activity) do %>
-            <i class="fas fa-pen"></i>
-          <% end %>
-          <%= link_to activity_path(@activity), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
         </div>
         <div class="activity-show-card">
           <p><%= @activity.description %></p>
@@ -27,18 +21,18 @@
 
       <div class="col-4">
         <div class="activity-show-card">
-          <h5>Book this activity!</h5>
-          <form action="">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">From:</span>
-              <input type="text" class="form-control" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mt-2">
-              <span class="input-group-addon" id="basic-addon1">To:</span>
-              <input type="text" class="form-control" placeholder="18/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-          </form>
+          <h5>Join the darkness!</h5>
+          <div class="login-form p-3 mt-5">
+            <h2 class="text-center">Book this activity</h2>
+              <%= simple_form_for [@activity, @booking] do |f| %>
+              <%= f.input :user_id, as: :hidden %>
+              <%= f.input :activity_id, as: :hidden %>
+              <%= f.input :date %>
+              <%= f.input :group_size %>
+              <%= f.button :submit, 'Book', class: 'btn btn-primary btn-block' %>
+            <% end %>
+            <!-- <form action="activities/1/bookings" method="post"></form> -->
+          </div>
         </div>
         <div class="activity-show-card">
           <h3>Details</h3>

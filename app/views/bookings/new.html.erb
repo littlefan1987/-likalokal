@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="login-form p-3 mt-5">
+        <h2 class="text-center">Book !</h2>
+          <%= simple_form_for [@activity, @booking] do |f| %>
+          <%= f.input :user_id, as: :hidden %>
+          <%= f.input :activity_id, as: :hidden %>
+          <%= f.input :date %>
+          <%= f.input :group_size %>
+          <%= f.button :submit, 'Make a booking !', class: 'btn btn-primary btn-block' %>
+        <% end %>
+        <!-- <form action="activities/1/bookings" method="post"></form> -->
+      </div>
+    </div>
+  </div>
+</div>

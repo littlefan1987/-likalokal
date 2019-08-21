@@ -21,17 +21,16 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
-      redirect_to guide_dashboard_path
+      redirect_to myactivities_path
     else
       render 'new'
     end
   end
 
   def show
-
-
     @activity = Activity.find(params[:id])
     @markers = [{ lat: @activity.latitude, lng: @activity.longitude }]
+    @booking = Booking.new
   end
 
   def myactivities
@@ -52,9 +51,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    @activity = Activity.find(params[:id])
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'The activity has been deleted. It was pretty boring anyway.' }
+      format.html { redirect_to myactivities_path, notice: 'The activity has been deleted. It was pretty boring anyway.' }
     end
   end
 
