@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  skip_before_action :authenticate_user!,raise: false, only: [:index, :show]
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
@@ -11,6 +12,11 @@ class ActivitiesController < ApplicationController
         lng: activity.longitude
       }
     end
+
+    city = params[:city]
+    category = params[:category]
+    @activities = @activities.where(category: category) if category
+    @activities = @activities.select { |activity| activity.user.city.downcase == params[:city].downcase } if ( params[:city] && !params[:city].empty?)
   end
 
   def new
