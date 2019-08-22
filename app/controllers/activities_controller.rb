@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
 
   def index
     # @activities = Activity.all
+    redirect_to '/'
     @activities = Activity.geocoded #returns flats with coordinates
 
     @markers = @activities.map do |activity|
@@ -40,7 +41,11 @@ class ActivitiesController < ApplicationController
   end
 
   def myactivities
+    if current_user
     @activity = current_user.activities.order(created_at: :desc)
+    else
+      redirect_to '/'
+    end
   end
 
   def edit
