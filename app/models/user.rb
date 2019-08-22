@@ -4,14 +4,13 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :activities
   has_many :booked_activities, through: :bookings, class_name: 'Activity'
-<<<<<<< HEAD
+
   # has_many :guide_bookings, through: :activities, class_name: 'Booking'
-=======
+
   has_many_attached :photo
 
   geocoded_by :address
   # after_validation :geocode, if: :address_changed?
->>>>>>> de70ef5c928198b43195687b9b02554c323033a5
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -26,18 +25,18 @@ class User < ApplicationRecord
 
     return bookings.flatten! # pourquoi .flatten ?
   end
-end
 
-def full_name
-  "#{self.first_name} #{self.last_name}"
-end
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 
-def guide?
-  return activities.count.positive?
-end
+  def guide?
+    return activities.count.positive?
+  end
 
-def city
-  return "" if self.address.nil?
+  def city
+    return "" if self.address.nil?
 
-  return self.address.split(" ")[-1].capitalize
+    return self.address.split(" ")[-1].capitalize
+  end
 end
