@@ -49,13 +49,16 @@
 
 .searchbar .styled-select {
   background-color: white;
+  padding: 0 10px;
   height: 50px;
-  width: 200px;
+  width: 300px;
   overflow: hidden;
   line-height: 40px;
   font-weight: lighter;
-  color: rgba(102, 102, 102, 0.3);
+  color: #666666;
   border: 1px solid #CCCCCC;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .searchbar .styled-select select {
@@ -73,7 +76,6 @@
   padding: 0 10px;
   height: 50px;
   width: 200px;
-  overflow: hidden;
   line-height: 40px;
   font-weight: lighter;
   color: rgba(102, 102, 102, 0.6);
