@@ -1,14 +1,15 @@
 .search-container {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.6);
+  position: absolute;
   bottom: 0;
   left: 0;
+  width: 100%;
   padding-bottom: 30px;
   padding-top: 30px;
-  position: absolute;
-  right: 0;
   z-index:999;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.6);
 }
+
 .searchbar {
   flex: 0 1 300px;
   display: flex;
@@ -16,6 +17,7 @@
   padding: 0 10px;
   position: relative;
 }
+
 .search-btn {
   line-height: 40px;
   color: #fff!important;
@@ -46,16 +48,17 @@
 }
 
 .searchbar .styled-select {
-  background: image-url('arrow-down.png') no-repeat 90% 40%;
   background-color: white;
+  padding: 0 10px;
   height: 50px;
+  width: 300px;
   overflow: hidden;
-  width: 150px;
   line-height: 40px;
   font-weight: lighter;
-  color: rgba(102, 102, 102, 0.6);
+  color: #666666;
   border: 1px solid #CCCCCC;
-  border-left:0px;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .searchbar .styled-select select {
@@ -68,69 +71,15 @@
    color: #666666;
 }
 
-/* LITTLE SEARCH */
-
-.little-searchbar {
-  display: flex;
-  justify-content: flex-start;
-  font-size: 12px;
-  margin-bottom:20px;
-  border-bottom: 1px solid #CCCCCC;
-  padding: 20px 0px;
-  align-items: center;
-}
-.little-searchbar search-btn {
-  line-height: 40px;
-  color: #fff!important;
-  z-index: 1;
-  font-size: 24px;
-  border: 1px solid $brand-color!important;
-  background-color: $brand-color;
-}
-.little-searchbar input {
-  transition: all 0.15s ease;
-  line-height: 40px;
-  font-weight: lighter;
-  color: #666666;
-  border: 1px solid #CCCCCC;
-  padding: 0 10px;
-  font-size: 12px;
-  outline: none;
-  height:50px;
-}
-.little-searchbar .small {
-  width:90px;
-}
-.little-searchbar input:focus  {
-  background-color: $focus-color;
-}
-
-.little-searchbar .search-city  {
-  border-left:1px solid #CCCCCC;
-}
-
-.little-searchbar .styled-select {
+.searchbar .select2 {
   background-color: white;
+  padding: 0 10px;
   height: 50px;
-  overflow: hidden;
+  width: 200px;
   line-height: 40px;
   font-weight: lighter;
   color: rgba(102, 102, 102, 0.6);
   border: 1px solid #CCCCCC;
-  border-left:0px;
-}
-
-.little-searchbar .styled-select select {
-   background: transparent;
-   border: none;
-   font-size: 12px;
-   height: 50px;
-   padding: 5px;
-   width: 110px;
-   color: #aaaaaa;
-}
-
-.little-searchbar .small_total {
-   margin-left:20px;
-   margin-bottom:0px;
+  border-radius: 0;
+  -webkit-appearance: none;
 }

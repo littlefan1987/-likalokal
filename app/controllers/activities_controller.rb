@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  skip_before_action :authenticate_user!,raise: false, only: [:index, :show, :home]
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
@@ -34,7 +35,11 @@ class ActivitiesController < ApplicationController
   end
 
   def myactivities
+    if current_user
     @activity = current_user.activities.order(created_at: :desc)
+    else
+      redirect_to '/'
+    end
   end
 
   def edit
