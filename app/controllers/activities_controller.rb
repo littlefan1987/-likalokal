@@ -12,14 +12,7 @@ class ActivitiesController < ApplicationController
         lng: activity.longitude
       }
     end
-
-    city = params[:city]
-    category = params[:category]
-    @activities = @activities.where(category: category) if category
-    @activities = @activities.near(params[:city]) if params[:city].present?
-
-    raise
-   end
+  end
 
   def new
     @activity = Activity.new
