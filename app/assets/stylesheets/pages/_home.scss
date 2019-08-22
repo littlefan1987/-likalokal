@@ -12,8 +12,9 @@
   font-family: 'Lexend Tera', sans-serif;
 }
 
-.homepage .title-container h3 {
+.homepage .title-container p {
   font-family: 'Lato', sans-serif;
+  font-size: 1.8em;
 }
 
 
@@ -29,9 +30,7 @@
 
 .video-container {
     position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 600px;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
     background: #000;
@@ -57,11 +56,13 @@
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
 }
+
 .video-container video {
     position: absolute;
     z-index: 0;
     top: -100px;
 }
+
 .video-container video.fillWidth {
     width: 100%;
 }
@@ -77,13 +78,13 @@
   margin: 50px auto;
 }
 
-.parallax {
-  /* Full height */
-  height: 100%;
+// .parallax {
+//   /* Full height */
+//   height: 100%;
 
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+//   /* Create the parallax scrolling effect */
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }

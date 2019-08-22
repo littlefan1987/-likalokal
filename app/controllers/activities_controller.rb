@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  skip_before_action :authenticate_user!,raise: false, only: [:index, :show]
+  skip_before_action :authenticate_user!,raise: false, only: [:index, :show, :home]
   before_action :set_activity, only: [:edit, :update, :destroy]
 
   def index
@@ -12,11 +12,6 @@ class ActivitiesController < ApplicationController
         lng: activity.longitude
       }
     end
-
-    city = params[:city]
-    category = params[:category]
-    @activities = @activities.where(category: category) if category
-    @activities = @activities.select { |activity| activity.user.city.downcase == params[:city].downcase } if ( params[:city] && !params[:city].empty?)
   end
 
   def new
@@ -41,9 +36,15 @@ class ActivitiesController < ApplicationController
     @bookings = @activity.bookings
   end
 
-  # def myactivities
-   # @activity = current_user.activities.order(created_at: :desc)
-  # end
+
+  def myactivities
+    if current_user
+    @activity = current_user.activities.order(created_at: :desc)
+    else
+      redirect_to '/'
+    end
+  end
+
 
   def edit
   end

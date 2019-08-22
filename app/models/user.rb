@@ -15,7 +15,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   def guide_bookings # pourquoi def dans model? pourquoi pas dans controller ? quand est-il du traveller ?
     bookings = []
     # comme on est dans la class user, on peut se permettre de travailler sur bookings et activities
@@ -34,9 +33,9 @@ class User < ApplicationRecord
     return activities.count.positive?
   end
 
-  def city
-    return "" if self.address.nil?
+  # def city
+  #   return "" if self.address.nil?
 
-    return self.address.split(" ")[-1].capitalize
-  end
+  #   return self.address.split(" ")[-1].capitalize
+  # end
 end
