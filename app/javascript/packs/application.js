@@ -8,7 +8,6 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initNotification } from '../plugins/init_notification';
 import { initVideo } from '../plugins/init_video';
 import { initSelect2 } from '../plugins/init_select2';
-import { initMapbox } from '../plugins/init_mapbox';
 
 loadDynamicBannerText();
 initMapbox();
