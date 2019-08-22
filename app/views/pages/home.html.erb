@@ -23,19 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= form_tag activities_path, method: :get do %>
-        <%= text_field_tag :city,
-            params[:city],
-            class: "form-control", id: "city",
-            placeholder: "Find a movie" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -43,17 +31,21 @@
           <h2 class="section-title">Experience a new place through the eyes of a local</h2>
           <div class="container">
             <div class="row cards">
-              <% @activities.each do |activity| %>
-                <div class="card-activity mb-3">
-                  <img src="<%= activity.photo %>" />
-                  <div class="card-activity-infos">
-                    <h2><%= activity.name %></h2>
-                    <p><%= truncate(activity.description, :length => 100) %></p>
-                    <span class="card-activity-pricing"><%= activity.price %>€</span>
-                    <%= link_to "Learn more", activity_path(activity), class: "card-activity-button"  %>
+              <% if @activities.present? %>
+                <% @activities.each do |activity| %>
+                  <div class="card-activity mb-3">
+                    <img src="<%= activity.photo %>" />
+                    <div class="card-activity-infos">
+                      <h2><%= activity.name %></h2>
+                      <p><%= truncate(activity.description, :length => 100) %></p>
+                      <span class="card-activity-pricing"><%= activity.price %>€</span>
+                      <%= link_to "Learn more", activity_path(activity), class: "card-activity-button"  %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              <% else %>
+                <p>Sorry, there's no activity... yet!</p>
+                <% end %>
             </div>
           </div>
         </div>

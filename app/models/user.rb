@@ -20,10 +20,10 @@ class User < ApplicationRecord
     return activities.count.positive?
   end
 
-  def city
-    return "" if self.address.nil?
+  # def city
+  #   return "" if self.address.nil?
 
-    return self.address.split(" ")[-1].capitalize
-  end
+  #   return self.address.split(" ")[-1].capitalize
+  # end
 end
 
