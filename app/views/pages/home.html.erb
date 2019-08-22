@@ -26,6 +26,19 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        <%= form_tag activities_path, method: :get do %>
+        <%= text_field_tag :city,
+            params[:city],
+            class: "form-control", id: "city",
+            placeholder: "Find a movie" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
         <div class="section">
           <h2 class="section-title">Experience a new place through the eyes of a local</h2>
           <div class="container">
