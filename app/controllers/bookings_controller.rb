@@ -46,6 +46,7 @@ class BookingsController < ApplicationController
     @booking.activity = @activity
     @booking.user = current_user
     @booking.status = "pending"
+
     if current_user
       if @booking.save
         #redirect_to activity_path(@activity)
@@ -53,6 +54,7 @@ class BookingsController < ApplicationController
       else
         render "activities/show"
       end
+
     else
         redirect_to new_user_session_path
     end
@@ -73,6 +75,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_travellers_dashboard_path, notice: 'The booking has been deleted.' }
     end
+
   end
 
   private
