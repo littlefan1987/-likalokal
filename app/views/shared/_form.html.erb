@@ -1,0 +1,10 @@
+<%= simple_form_for @activity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :address %>
+  <%= f.input :category, collection: Activity::CATEGORY %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

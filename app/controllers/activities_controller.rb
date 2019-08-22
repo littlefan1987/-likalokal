@@ -16,8 +16,9 @@ class ActivitiesController < ApplicationController
 
     city = params[:city]
     category = params[:category]
+
     @activities = @activities.where(category: category) if category
-    @activities = @activities.select { |activity| activity.user.city.downcase == params[:city].downcase } if ( params[:city] && !params[:city].empty?)
+    @activities = @activities.select { |activity| activity.user.city.downcase == params[:city].downcase } if (params[:city] && !params[:category].empty?)
   end
 
   def new
