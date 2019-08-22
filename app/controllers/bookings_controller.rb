@@ -52,8 +52,8 @@ Sian Ka'an Biosphere Reserve Boca Paila", category: "Hiking", price: "155.93", d
     @booking.user = current_user
     @booking.status = "pending"
     if @booking.save
-      #redirect_to activity_path(@activity)
-      redirect_to user_travellers_dashboard_path
+      redirect_to activity_path(@activity)
+      #redirect_to user_travellers_dashboard_path
     else
       render :new
     end

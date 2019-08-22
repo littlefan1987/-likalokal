@@ -7,53 +7,109 @@
         </div>
         <div class="activity-show-card">
           <p><%= @activity.description %></p>
-           <div
-              id="map"
-              style="width: 100%;
-              height: 600px;"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
+        </div>
+<!-- ---------- -->
+        <% if current_user == @activity.user %>
 
+        <div class="activity-show-card">
+          <p><%= @activity.price %></p>
         </div>
       </div>
-
-      <div class="col-4">
-        <div class="activity-show-card">
-          <h5>Join the darkness!</h5>
-
-              <%= simple_form_for [@activity, @booking] do |f| %>
-              <%= f.input :user_id, as: :hidden %>
-              <%= f.input :activity_id, as: :hidden %>
-              <%= f.input :date %>
-              <%= f.input :group_size %>
-              <%= f.button :submit, 'Book', class: 'btn btn-primary btn-block' %>
-            <% end %>
-            <!-- <form action="activities/1/bookings" method="post"></form> -->
-        </div>
-        <div class="activity-show-card">
-          <h3>Details</h3>
-          <div class="flex">
-            <div class="flex">
-              <p>Group size selector</p>
-            </div>
-            <div class="flex ml-3">
-              <i class="fas fa-euro-sign"></i> <%= @activity.price %>
-            </div>
-          </div>
-        </div>
-        <div class="activity-show-card">
-          <div class="flex-align">
-            <h3>Meet<%= @activity.user_id %></h3>
-            <div class="flex">
-              <p><%= @activity.user_id %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
 
+
+ <div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+        <h1>My bookings</h1>
+
+        <ul class="list-inline tabs-underlined my-5">
+          <li>
+            <a href="#" class="tab-underlined active">Pending</a>
+          </li>
+          <li>
+            <a href="#" class="tab-underlined">Confirmed</a>
+          </li>
+        </ul>
+
+        <% @bookings.each do |booking| %>
+          <div class="card-product mb-3">
+            <img src="<%= booking.activity.photo %>" />
+            <div class="card-product-infos">
+              <h2><%= booking.activity.name %></h2>
+              <p><%= booking.activity.address %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Date</h2>
+              <p><%= booking[:date] %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Price</h2>
+              <p><%= booking.activity.price * booking[:group_size] %>€</p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Status</h2>
+              <p><%= booking[:status] %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Email</h2>
+              <p><%= booking.user.email %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Ref</h2>
+              <p><%= booking.id %></p>
+            </div>
+          </div>
+        <% end %>
+  <% else %>
+
+          <div
+            id="map"
+            style="width: 100%;
+            height: 600px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+
+
+
+          <div class="col-4">
+            <div class="activity-show-card">
+              <h5>Join the darkness!</h5>
+
+                <%= simple_form_for [@activity, @booking] do |f| %>
+                <%= f.input :user_id, as: :hidden %>
+                <%= f.input :activity_id, as: :hidden %>
+                <%= f.input :date %>
+                <%= f.input :group_size %>
+                <%= f.button :submit, 'Book', class: 'btn btn-primary btn-block' %>
+              <% end %>
+              <!-- <form action="activities/1/bookings" method="post"></form> -->
+          </div>
+          <div class="activity-show-card">
+            <h3>Details</h3>
+            <div class="flex">
+              <div class="flex">
+                <p>Group size selector</p>
+              </div>
+              <div class="flex ml-3">
+                <i class="fas fa-euro-sign"></i> <%= @activity.price %>
+              </div>
+            </div>
+          </div>
+          <div class="activity-show-card">
+            <div class="flex-align">
+              <h3>Meet<%= @activity.user_id %></h3>
+              <div class="flex">
+                <p><%= @activity.user_id %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
 

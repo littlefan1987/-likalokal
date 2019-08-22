@@ -27,7 +27,8 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
-      redirect_to myactivities_path
+     # redirect_to myactivities_path
+      redirect_to guide_dashboard_path
     else
       render 'new'
     end
@@ -37,11 +38,12 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @markers = [{ lat: @activity.latitude, lng: @activity.longitude }]
     @booking = Booking.new
+    @bookings = @activity.bookings
   end
 
-  def myactivities
-    @activity = current_user.activities.order(created_at: :desc)
-  end
+  # def myactivities
+   # @activity = current_user.activities.order(created_at: :desc)
+  # end
 
   def edit
   end
