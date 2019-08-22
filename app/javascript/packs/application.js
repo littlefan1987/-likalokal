@@ -13,3 +13,9 @@ $(document).ready(function() {
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+
+
+import { initSelect2 } from './plugins/init_select2';
+
+initSelect2();
+
