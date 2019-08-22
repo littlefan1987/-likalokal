@@ -5,11 +5,17 @@ $(document).ready(function() {
   $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
       $(".alert-success").slideUp(500);
   });
+  $(".alert-danger").hide();
+  $(".alert-danger").fadeTo(2000, 500).slideUp(500, function(){
+      $(".alert-danger").slideUp(500);
+  });
 });
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
 
+
 import { initSelect2 } from './plugins/init_select2';
 
 initSelect2();
+

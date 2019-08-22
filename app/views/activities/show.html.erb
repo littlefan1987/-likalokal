@@ -21,15 +21,13 @@
       <div class="col-4">
         <div class="activity-show-card">
           <h5>Join the darkness!</h5>
-
-              <%= simple_form_for [@activity, @booking] do |f| %>
+            <%= simple_form_for [@activity, @booking] do |f| %>
               <%= f.input :user_id, as: :hidden %>
               <%= f.input :activity_id, as: :hidden %>
               <%= f.input :date %>
               <%= f.input :group_size %>
               <%= f.button :submit, 'Book', class: 'btn btn-primary btn-block' %>
             <% end %>
-            <!-- <form action="activities/1/bookings" method="post"></form> -->
         </div>
         <div class="activity-show-card">
           <h3>Details</h3>
