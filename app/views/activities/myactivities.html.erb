@@ -27,7 +27,12 @@
               <%= link_to 'Edit', edit_activity_path(activity) %>
             </div>
             <div class="card-product-infos">
-              <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Delete', activity_path(activity), class: "sw-btn-delete", method: :delete, data: { confirm: "Are you sure?", text: "Once deleted, you will not be able to recover this imaginary file!",'confirm-button-text': 'Im ready',
+  'cancel-button-text': 'No way',
+  'confirm-button-color': '#66CD00',
+  'sweet-alert-type': 'info' } %>
+
+              <!-- method: :delete, data: { confirm: 'Are you sure?' } -->
             </div>
           </div>
         <% end %>
