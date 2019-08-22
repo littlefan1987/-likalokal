@@ -1,22 +1,36 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-3">
-      <% @activities.each do |activity| %>
-        <div class="activity-card">
-          <% activity_photo = (activity.photo ? cl_image_path(activity.photo.path) : image_path("blah.png")) %>
-          <div class="photo" style="background-image: url('<%= activity_photo %>');"><%= link_to " ", activity, class: 'link-activity' %>
-          </div>
+    <div class="col-12">
+        <h1>My activities</h1>
 
-          <div class="description">
-            <h3><%= activity.name %></h3>
-            <p><%= truncate(activity.description, :length => 50) %></p>
-            <span><%= activity.price %>€</span>
-          </div>
-        </div>
-      <% end %>
+        <ul class="list-inline tabs-underlined my-5">
+          <li>
+            <a href="#" class="tab-underlined active">En cours</a>
+          </li>
+          <li>
+            <a href="#" class="tab-underlined">Historique</a>
+          </li>
+        </ul>
 
-      <%= link_to "Create a new activity", new_activity_path, class:'btn btn-info' %>
+        <% @activity.each do |activity| %>
+          <div class="card-product mb-3">
+            <img src="<%= activity.photo %>" />
+            <div class="card-product-infos">
+              <h2><%= activity.name %></h2>
+              <p><%= activity.address %></p>
+            </div>
+            <div class="card-product-infos">
+              <h2>Price</h2>
+              <p><%= activity.price %>€</p>
+            </div>
+            <div class="card-product-infos">
+              <%= link_to 'Edit', edit_activity_path(activity) %>
+            </div>
+            <div class="card-product-infos">
+              <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
-
 </div>

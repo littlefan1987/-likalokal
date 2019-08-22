@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'geocoder'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
@@ -34,3 +36,6 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 
 gem 'pundit'
+
+gem 'pg_search'
+gem 'algoliasearch-rails'

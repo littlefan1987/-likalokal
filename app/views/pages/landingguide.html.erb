@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="menu-card">
+        <div class="section text-center landing-chef">
+          <h1><%= @user.full_name %></h1>
+        </div>
+        <div class="guide-profile description">
+          <div>
+          <%= @user.photo ? cl_image_tag(@user.photo.path, width: 200, height: 200, crop: :fill, class: 'avatar-large') : image_tag("no_photo.png")%>
+          </div>
+          <p><%= @user.description %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <%= render 'my_activities', activities: @user.activities %>
+    </div>
+  </div>
+</div>
