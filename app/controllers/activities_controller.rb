@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
 
   def index
     # @activities = Activity.all
-    redirect_to '/'
     @activities = Activity.geocoded #returns flats with coordinates
 
     @markers = @activities.map do |activity|
@@ -13,12 +12,6 @@ class ActivitiesController < ApplicationController
         lng: activity.longitude
       }
     end
-
-    city = params[:city]
-    category = params[:category]
-
-    @activities = @activities.where(category: category) if category
-    @activities = @activities.select { |activity| activity.user.city.downcase == params[:city].downcase } if (params[:city] && !params[:category].empty?)
   end
 
   def new

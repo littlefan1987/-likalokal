@@ -1,21 +1,37 @@
 <div class="container">
   <div class="row">
   <% activities.each do |activity| %>
-    <div class="col-xs-12 col-md-6">
 
-      <div class="activity-card">
-      <div class="photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%=cl_image_path(activity.photo.path) %>');"><%= link_to " ", activity, class: 'link-activity' %>
-      </div>
+    <div class="col-12 activity-card">
 
-        <div class="description">
+    </div>
+    <div class="col-12 col-md-3">
+        <div class="photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%=cl_image_path(activity.photo.path) %>');"><%= link_to " ", activity, class: 'link-activity' %>
+        </div>
+    </div>
+    <div class="col-12 col-md-3">
+              <div class="description">
           <h3><%= activity.name %></h3>
           <p><%= truncate(activity.description, :length => 40) %></p>
           <span><%= activity.price %>€</span>
         </div>
-        <div class="localisation">
+    </div>
+    <div class="col-12 col-md-3">
+              <div class="localisation">
           <p><i class="fa fa-map-marker"></i> <%= activity.user.city if activity.user.city != NIL %></p>
           <%= link_to "Book now", activity, class: 'btn cta-btn' %>
         </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12">
+
+      <div class="activity-card">
+
+
+
+
+
+
       </div>
 
     </div>
