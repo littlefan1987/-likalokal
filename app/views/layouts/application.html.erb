@@ -13,9 +13,20 @@
   </head>
   <body>
     <%= render partial: "shared/navbar" %>
+    <%= render partial: "shared/notice" %>
+    <%= render partial: "shared/alert" %>
+    <!--  <div class="alert alert-success" role="alert">
+      A simple success alert—check it out!
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> -->
+
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
