@@ -3,16 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'user/travellers/dashboard', to: 'bookings#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-<<<<<<< HEAD
-resources :activities, only: [:new, :create, :index, :show]
-get "guide_dashboard", to: "users#guide_dashboard", as: :guide_dashboard
-=======
+
   resources :activities, only: [:new, :create, :index, :show, :edit, :destroy] do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show, :edit, :destroy]
-  get "guide_dashboard", to: "users#guide_dashboard"
->>>>>>> de70ef5c928198b43195687b9b02554c323033a5
+  get "guide_dashboard", to: "users#guide_dashboard", as: :guide_dashboard
+
 
   get "myactivities", to: "activities#myactivities"
 
