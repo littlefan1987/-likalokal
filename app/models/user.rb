@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # has_many :guide_bookings, through: :activities, class_name: 'Booking'
 
   has_many_attached :photo
+  has_one_attached :avatar
 
   geocoded_by :address
   # after_validation :geocode, if: :address_changed?
@@ -32,10 +33,4 @@ class User < ApplicationRecord
   def guide?
     return activities.count.positive?
   end
-
-  # def city
-  #   return "" if self.address.nil?
-
-  #   return self.address.split(" ")[-1].capitalize
-  # end
 end
