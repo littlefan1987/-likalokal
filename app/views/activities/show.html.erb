@@ -92,29 +92,31 @@
         <% @bookings.each do |booking| %>
           <div class="card-product mb-3">
             <img src="<%= booking.activity.photo %>" />
-            <div class="card-product-infos">
-              <h2><%= booking.activity.name %></h2>
-              <p><%= booking.activity.address %></p>
-            </div>
-            <div class="card-product-infos">
-              <h2>Date</h2>
-              <p><%= booking[:date] %></p>
-            </div>
-            <div class="card-product-infos">
-              <h2>Price</h2>
-              <p><%= booking.activity.price * booking[:group_size] %>€</p>
-            </div>
-            <div class="card-product-infos">
-              <h2>Status</h2>
-              <p><%= booking[:status] %></p>
-            </div>
-            <div class="card-product-infos">
-              <h2>Email</h2>
-              <p><%= booking.user.email %></p>
-            </div>
-            <div class="card-product-infos">
-              <h2>Ref</h2>
-              <p><%= booking.id %></p>
+            <div class="card-product-details">
+              <div class="card-product-infos">
+                <h2><%= booking.activity.name %></h2>
+                <p><%= booking.activity.address %></p>
+              </div>
+              <div class="card-product-infos">
+                <h2>Date</h2>
+                <p><%= booking[:date] %></p>
+              </div>
+              <div class="card-product-infos">
+                <h2>Price</h2>
+                <p><%= booking.activity.price * booking[:group_size] %>€</p>
+              </div>
+              <div class="card-product-infos">
+                <h2>Status</h2>
+                <p><%= booking[:status] %></p>
+              </div>
+              <div class="card-product-infos">
+                <h2>Email</h2>
+                <p><%= booking.user.email %></p>
+              </div>
+              <div class="card-product-infos">
+                <h2>Ref</h2>
+                <p><%= booking.id %></p>
+              </div>
             </div>
           </div>
         <% end %>

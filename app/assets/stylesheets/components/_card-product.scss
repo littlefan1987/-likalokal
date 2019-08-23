@@ -58,18 +58,12 @@
     }
   }
 
-  .card-product-infos {
-    display: flex;
-    align-items: center;
+  .card-product-details {
+   display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding-top: 10px;
     width: 100%;
-    justify-content: space-between;
-  }
-
-  .card-product-item {
-    // flex-direction: column;
-    // min-width: 100px;
-    // display: block;
-    //text-align: center;
   }
 }
 

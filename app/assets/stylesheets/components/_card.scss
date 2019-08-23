@@ -107,11 +107,18 @@ a:hover {
   color: white;
   font-weight: bolder;
   //text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    transform: scale(0.95);
+  transition: box-shadow 0.5s, transform 0.5s;
 }
 
 .card-guide:hover {
   color: white;
   font-size: 22px;
+
+
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+
 }
 
 @media (max-width: 1200px) {
