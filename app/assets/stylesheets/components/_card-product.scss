@@ -16,7 +16,7 @@
 .card-product {
   img {
     height: 100%;
-    width: 120px;
+    width: 160px;
     object-fit: cover;
   }
 
@@ -35,7 +35,16 @@
   }
 
   .card-product-infos {
-    padding: 16px;
   }
 
 }
+
+.card-product-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding-top: 10px;
+    width: 100%;
+}
+
+
