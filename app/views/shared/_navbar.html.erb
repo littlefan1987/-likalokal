@@ -21,7 +21,7 @@
             <% if user_signed_in? && current_user.guide? %>
               <%= link_to "My guide dashboard", guide_dashboard_path, class: "dropdown-item" %>
             <% end %>
-            <%= link_to "My traveller dashboard", bookings_path, class: "dropdown-item" %>
+            <%= link_to "My traveller dashboard", traveller_dashboard_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
