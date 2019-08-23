@@ -98,9 +98,9 @@
           </div>
           <div class="activity-show-card">
             <div class="flex-align">
-              <h3>Meet<%= @activity.user.first_name %></h3>
+              <h3>Meet <%= @activity.user.first_name %></h3>
               <div class="flex">
-                <%= image_tag (@activity.user.avatar), class: "avatar-large" %>
+                <%= image_tag ("no_photo.png"), class: "avatar-large" %>
               </div>
               <p><%= @activity.user.description %></p>
             </div>

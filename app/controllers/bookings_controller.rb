@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
    @bookings = Booking.joins(:activity).where(“activities.user_id = ?“, current_user.id)
   end
 
-
   def show
     @booking = Booking.find(params[:id])
   end
@@ -39,6 +38,18 @@ class BookingsController < ApplicationController
     else
         redirect_to new_user_session_path
     end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "approved"
+    @booking.save
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.status = "rejected"
+    @booking.save
   end
 
   # cancel booking as a user

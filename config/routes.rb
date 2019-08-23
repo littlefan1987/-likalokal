@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :activities, only: [:new, :create, :index, :show, :edit, :destroy] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index, :show, :edit, :destroy]
+  resources :bookings, only: [:index, :show, :edit, :destroy] do
+    member do
+      patch "/accept", to: "bookings#accept"
+      patch "/reject", to: "bookings#reject"
+    end
+  end
   get "guide_dashboard", to: "users#guide_dashboard", as: :guide_dashboard
 
 
