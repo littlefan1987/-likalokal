@@ -25,6 +25,15 @@ class User < ApplicationRecord
     return bookings.flatten! # pourquoi .flatten ?
   end
 
+  #def traveller_bookings
+    #return @bookings = bookings.current_user
+    # bookings = []
+    #bookings.each do |activity|
+     # bookings << activity.bookings
+    #end
+    #return bookings.flatten!
+  #end
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

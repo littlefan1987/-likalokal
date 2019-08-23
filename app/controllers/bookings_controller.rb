@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
     if current_user
       if @booking.save
         #redirect_to activity_path(@activity)
-        redirect_to user_travellers_dashboard_path
+        redirect_to traveller_dashboard_path
       else
         render "activities/show"
       end
@@ -73,7 +73,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to user_travellers_dashboard_path, notice: 'The booking has been deleted.' }
+      format.html { redirect_to traveller_dashboard_path, notice: 'The booking has been deleted.' }
     end
 
   end
