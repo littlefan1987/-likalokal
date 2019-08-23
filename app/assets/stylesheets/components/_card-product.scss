@@ -1,10 +1,11 @@
 .card-product {
+  display: flex;
+  align-items: center;
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+
   transform: scale(0.95);
   transition: box-shadow 0.5s, transform 0.5s;
   &:hover{
@@ -38,4 +39,37 @@
     padding: 16px;
   }
 
+}
+
+.dashboard {
+
+  .card-product {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    transform: scale(0.95);
+    transition: box-shadow 0.5s, transform 0.5s;
+    &:hover{
+      transform: scale(1);
+      box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+    }
+  }
+
+  .card-product-infos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .card-product-item {
+    // flex-direction: column;
+    // min-width: 100px;
+    // display: block;
+    //text-align: center;
+  }
 }

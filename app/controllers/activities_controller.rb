@@ -63,7 +63,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to myactivities_path, notice: 'The activity has been deleted. It was pretty boring anyway.' }
+      format.html { redirect_to guide_dashboard_path, notice: 'The activity has been deleted. It was pretty boring anyway.' }
     end
   end
 

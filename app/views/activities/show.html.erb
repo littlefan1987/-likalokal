@@ -16,26 +16,6 @@
         <p><%= @activity.description %></p>
       </div>
       <div class="activity-show-card">
-        <h2>Les incontournables</h2>
-        <hr>
-        <ul>
-          <li>Visitez la biosphère reculée de Sian Ka'an avec un guide</li>
-          <li>Un excellent moyen d'oublier les plages avec une aventure d'une journée</li>
-          <li>Partez à la recherche des dauphins, des lamantins et des tortues de mer depuis votre bateau</li>
-          <li>Transfert depuis et vers l'hôtel inclus</li>
-        </ul>
-      </div>
-      <div class="activity-show-card">
-        <h2>A quoi s'attendre?</h2>
-        <hr>
-        <p>Après le transfert depuis votre hôtel, quittez Tulum et voyagez vers le sud jusqu'à la réserve de biosphère. Après environ 30 minutes de route le long de la péninsule de Boca Paila, arrêtez-vous pour monter à bord de votre bateau et poursuivre le voyage sur l'eau. Partez à la découverte de la lagune de Boca Paila pendant que votre guide vous parle de l'écologie et de l'histoire de la région. Passez un peu de temps libre sur une plage, à faire du snorkeling (le matériel de snorkeling est inclus dans le prix de l'excursion) et à repérer des lamantins, si les conditions météorologiques le permettent.</p>
-
-        <p>Ensuite, continuez dans la baie de l'Ascension et découvrez des colonies d'oiseaux. Votre guide vous parlera de l'importance écologique des mangroves et vous emmènera trouver des dauphins et des tortues de mer.</p>
-
-        <p>Rendez-vous à Punta Allen pour un déjeuner typiquement caribéen et profitez d'un peu de temps libre. Ensuite, retournez à Tulum et vous serez déposé à votre hôtel juste à temps pour un dîner de bonne heure.</p>
-
-      </div>
-      <div class="activity-show-card">
        <h2>Condition d'annulation</h2>
         <hr>
         <p>Pour un remboursement intégral, annulez au moins 24 heures avant la date de début de votre expérience.</p>
@@ -71,28 +51,24 @@
         <% end %>
       </div>
       <div class="activity-show-card">
-        <h2>Details</h2>
-        <hr>
-        <div class="flex">
-          <div class="flex">
-            <p>Group size selector</p>
-          </div>
-          <div class="flex ml-3">
-            <%= @activity.price %>€
-          </div>
-        </div>
-      </div>
-      <div class="activity-show-card">
         <div class="">
           <h2>Your guide</h2>
           <hr>
           <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-          <p><%= @activity.user.first_name %></p>
+          <p>Ambrose</p>
 
         </div>
       </div>
       <% else %>
-        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <div class="activity-show-card">
+          <h2>Informations principales</h2>
+          <hr>
+          <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
+        <div class="activity-show-card">
+          <%= link_to 'Edit', edit_activity_path(@activity), class: 'btn btn-primary btn-block' %>
+          <%= link_to 'Delete', activity_path(@activity), class: 'btn btn-danger btn-block', method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
       <% end %>
     </div>
   </div>
