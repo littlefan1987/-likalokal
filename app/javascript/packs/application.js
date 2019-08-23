@@ -7,13 +7,17 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initNotification } from '../plugins/init_notification';
 import { initVideo } from '../plugins/init_video';
-import { loadDynamicBannerText } from '../components/banner';
+import { initDynamicBannerText } from '../plugins/init_dynamicbannertext';
 import { initSelect2 } from '../plugins/init_select2';
-
+import { initBookingForm } from '../plugins/init_bookingform';
 
 initMapbox();
 initAutocomplete();
 initNotification();
 initVideo();
-loadDynamicBannerText();
+initBookingForm();
+if (document.querySelector("#banner-typed-text")){
+  initDynamicBannerText();
+}
+
 initSelect2();

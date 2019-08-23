@@ -83,15 +83,23 @@
       font-size: 14px;
     }
   }
-  .price {
+  .price-container{
     position: absolute;
     top: 30px;
     right: 40px;
-    font-size: 32px;
-    font-weight: 500;
-    span {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+    .price {
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .small-light {
       font-size: 18px;
       font-weight: 300;
     }
+
   }
 }
