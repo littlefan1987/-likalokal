@@ -1,0 +1,15 @@
+.link-reject {
+  color:#da1350;
+  &:hover{
+    font-weight: 500;
+    color:#da1350;
+  }
+}
+
+.link-accept {
+  color:#17bf17;
+  &:hover{
+    font-weight: 500;
+    color:#17bf17;
+  }
+}

@@ -44,12 +44,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "approved"
     @booking.save
+    redirect_to guide_dashboard_path
   end
 
   def reject
     @booking = Booking.find(params[:id])
     @booking.status = "rejected"
     @booking.save
+    redirect_to guide_dashboard_path
   end
 
   # cancel booking as a user
