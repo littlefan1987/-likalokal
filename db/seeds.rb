@@ -83,7 +83,7 @@ User.create(
   )
 
 
-Activity.create!(name: "Satanism and Devil Worshiping",
+Activity.create!(name: "Satanism and Paris",
   description: "If the Age of the Enlightenment and its philosophers has been greatly influenced by French authors, the XIX century marks the return of the devil. Even Victor Hugo had gladly accepted the title of president of the Satanic Temple of France, French press had awarded him.",
   price: "25",
   address: "Place Saint-Michel, Paris",
@@ -91,20 +91,12 @@ Activity.create!(name: "Satanism and Devil Worshiping",
   category: "Occult & Esotericism",
   user: User.first)
 
-Activity.create!(name: "Dublin - Ghosts, Vampires and Serial Killers",
+Activity.create!(name: "Dublin Ghosts Tour",
   description: "From sinister surgeons and bodysnatchers to ghosts and ghouls... Discover mythological villains and real ones too, buried deep in Dublin's gruesome past. Visit a medieval vault a hidden city graveyard. It's a night tour and there's quite a bit of walking involved, so put on your sneakers. Besides heels aren't practical when running away from werewolves.",
   price: "25",
   address: "Christchurch, Dublin",
   photo: "dublin_bus.jpg",
   category: "Occult & Esotericism",
-  user: User.first)
-
-Activity.create!(name: "Death, Life and Symbolism",
-  description: "When visiting the Père Lachaise Cemetery, you get a sense that the bourgeoisie, and even the bohemians of the day – were competing with each other over who's got the fanciest eternal resting spot. Prepare yourself for a visit like no other in town and drop by to say hello to some of the most influential people of their time (and even of our time). So are you ready to explore the Père Lachaise Cemetery?",
-  price: "20",
-  address: "Père Lachaise, Paris",
-  photo: "../images/pere_lachaise",
-  category: "Culture & History",
   user: User.first)
 
 Activity.create!(name: "Zombie Hunt",
@@ -131,20 +123,12 @@ Activity.create!(name: "Sedlec Ossuary",
   category: "Culture & History",
   user: User.first)
 
-Activity.create!(name: "History & Mystery in Edinburgh's Closes",
+Activity.create!(name: "Mystery in Edinburgh",
   description: "As you walk up the Royal Mile, it's hard to miss the arched entryways that sit on either side. Signposted with odd names like 'Fleshmarket', 'Lady Stair's' and 'World's End', these closes, wynds, courts and entries play an essential role in Edinburgh's charming infrastructure. Situated within the (former) town walls, the exceptionally narrow streets weren't a mistake of engineering. With the threat of English attack always at the forefront, skinny streets surrounded by tall buildings provided early city dwellers with protection and peace of mind. Edinburgh's medieval honeycomb of hidden alleyways also contains some of the city's best stories, secrets and mysteries. Many of Edinburgh's most influential characters once called these closes home – and some are believed to still lurk among the cobblestones.",
   price: "10",
   address: "High Street, Edinburgh",
   photo: "../images/edinburgh.jpg",
   category: "Culture & History",
-  user: User.first)
-
-Activity.create!(name: "Dark Heart & Murder Mysteries",
-  description: "Uncover gruesome secrets from the city of Lights' dark past. Learn about public executions, ritual worship and the devastations of the plague. I'll narrate chilling stories that are bound to give you a fright - nothing that can't be solved by a glass of wine though.",
-  price: "20",
-  address: "Kutná Hora",
-  photo: "../images/bone_chapel.jpg",
-  category: "True Crime",
   user: User.first)
 
 Activity.create!(name: "In the Footsteps of Jack The Ripper",
