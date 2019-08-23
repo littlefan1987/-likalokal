@@ -25,17 +25,13 @@ class User < ApplicationRecord
     return bookings.flatten! # pourquoi .flatten ?
   end
 
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
 
+
   def guide?
     return activities.count.positive?
   end
-
-  # def city
-  #   return "" if self.address.nil?
-
-  #   return self.address.split(" ")[-1].capitalize
-  # end
 end
