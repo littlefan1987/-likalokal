@@ -16,13 +16,13 @@
         <p><%= @activity.description %></p>
       </div>
       <div class="activity-show-card">
-       <h2>Condition d'annulation</h2>
+       <h2>Cancellation policy</h2>
         <hr>
         <p>Cancel up to 24 hours before your trip and get a full refund, including all fees. Cancel within 24 hours of the trip and the first night is non-refundable except for fees.</p>
       </div>
       <% if current_user != @activity.user %>
       <div class="activity-show-card">
-        <h2>Informations principales</h2>
+        <h2>Let's meet here</h2>
         <hr>
         <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
@@ -54,7 +54,7 @@
         <div class="">
           <h2>Your guide</h2>
           <hr>
-          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+          <img class="avatar" alt="avatar" src="https://images.unsplash.com/photo-1551828060-1bcda73c75bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=946&q=80" />
           <p>Ambrose</p>
 
         </div>
