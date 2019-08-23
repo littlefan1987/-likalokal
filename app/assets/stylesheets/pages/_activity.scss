@@ -67,7 +67,31 @@
   color: #333;
 }
 
-.activity-show-card i {
-  font-size: 24px;
+.activity-show-card {
+  i {
+  font-size: 12px;
   color: #808080;
+  }
+  h2{
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
+  ul {
+    li {
+      font-size: 14px;
+    }
+  }
+  .price {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 32px;
+    font-weight: 500;
+    span {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
 }

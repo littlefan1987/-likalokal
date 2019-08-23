@@ -4,6 +4,13 @@ a:hover {
 
 .cards {
   justify-content: space-between;
+
+  p {
+    &:first-child {
+      margin: auto;
+    }
+  }
+
 }
 
 .card-activity {
@@ -73,12 +80,6 @@ a:hover {
   color: white;
 }
 
-@media (max-width: 1200px) {
-  .cards {
-    justify-content: space-around;
-  }
-}
-
 .card-guide {
   margin-bottom: 30px;
   background-size: cover;
@@ -99,5 +100,9 @@ a:hover {
   color: red;
 }
 
-
+@media (max-width: 1200px) {
+  .cards {
+    justify-content: space-around;
+  }
+}
 
