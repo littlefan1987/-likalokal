@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!, except: [:home]
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
   # Its important that the location is NOT stored if:
@@ -16,13 +15,5 @@ class ApplicationController < ActionController::Base
   def store_user_location!
     # :user is the scope we are authenticating
     store_location_for(:user, request.fullpath)
-  end
-
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password,
-      :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar])
   end
 end

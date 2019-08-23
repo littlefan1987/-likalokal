@@ -8,7 +8,6 @@ class User < ApplicationRecord
   # has_many :guide_bookings, through: :activities, class_name: 'Booking'
 
   has_many_attached :photo
-  has_one_attached :avatar
 
   geocoded_by :address
   # after_validation :geocode, if: :address_changed?
