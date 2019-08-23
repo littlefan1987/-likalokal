@@ -1,6 +1,6 @@
 import Typed from 'typed.js';
 
-  const loadDynamicBannerText = () => {
+const initDynamicBannerText = () => {
     new Typed('#banner-typed-text', {
       strings: ["into the dark.", "in the graveyard.", "into the dark forest.", "in the underground vault."],
       typeSpeed: 60,
@@ -8,5 +8,4 @@ import Typed from 'typed.js';
     });
   }
 
-export { loadDynamicBannerText };
-
+export { initDynamicBannerText };

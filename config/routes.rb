@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-
+  get 'user/travellers/dashboard', to: 'bookings#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :activities, only: [:new, :create, :index, :show, :edit, :destroy] do
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     end
   end
   get "guide_dashboard", to: "users#guide_dashboard", as: :guide_dashboard
-
+  # temporaire to delete ci dessous
+  get 'user/travellers/dashboard', to: 'bookings#index'
 
   get "myactivities", to: "activities#myactivities"
 

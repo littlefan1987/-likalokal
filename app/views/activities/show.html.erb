@@ -1,29 +1,111 @@
 <div class="activity-photo-banner" style="background-image: url('<%= @activity.photo %>')"></div>
-  <div class="container margin-top-negative">
-    <div class="row">
-      <div class="col-8">
-        <div class="activity-show-card">
-          <h1><%= @activity.name %></h1>
-        </div>
-        <div class="activity-show-card">
-          <p><%= @activity.description %></p>
-        </div>
-<!-- ---------- -->
-        <% if current_user == @activity.user %>
-
-        <div class="activity-show-card">
-          <p><%= @activity.price %></p>
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="activity-show-card">
+        <h1><%= @activity.name %></h1>
+        <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i> 162 avis</p>
+        <div class="price-container">
+          <p id="price" class="price" data-amount-cents="<%= @activity.price %>"><%= @activity.price %> €&nbsp;</p>
+          <p class="small-light"> / pers</p>
         </div>
       </div>
+      <div class="activity-show-card">
+        <h2>Description</h2>
+        <hr>
+        <p><%= @activity.description %></p>
+      </div>
+      <div class="activity-show-card">
+        <h2>Les incontournables</h2>
+        <hr>
+        <ul>
+          <li>Visitez la biosphère reculée de Sian Ka'an avec un guide</li>
+          <li>Un excellent moyen d'oublier les plages avec une aventure d'une journée</li>
+          <li>Partez à la recherche des dauphins, des lamantins et des tortues de mer depuis votre bateau</li>
+          <li>Transfert depuis et vers l'hôtel inclus</li>
+        </ul>
+      </div>
+      <div class="activity-show-card">
+        <h2>A quoi s'attendre?</h2>
+        <hr>
+        <p>Après le transfert depuis votre hôtel, quittez Tulum et voyagez vers le sud jusqu'à la réserve de biosphère. Après environ 30 minutes de route le long de la péninsule de Boca Paila, arrêtez-vous pour monter à bord de votre bateau et poursuivre le voyage sur l'eau. Partez à la découverte de la lagune de Boca Paila pendant que votre guide vous parle de l'écologie et de l'histoire de la région. Passez un peu de temps libre sur une plage, à faire du snorkeling (le matériel de snorkeling est inclus dans le prix de l'excursion) et à repérer des lamantins, si les conditions météorologiques le permettent.</p>
+
+        <p>Ensuite, continuez dans la baie de l'Ascension et découvrez des colonies d'oiseaux. Votre guide vous parlera de l'importance écologique des mangroves et vous emmènera trouver des dauphins et des tortues de mer.</p>
+
+        <p>Rendez-vous à Punta Allen pour un déjeuner typiquement caribéen et profitez d'un peu de temps libre. Ensuite, retournez à Tulum et vous serez déposé à votre hôtel juste à temps pour un dîner de bonne heure.</p>
+
+      </div>
+      <div class="activity-show-card">
+       <h2>Condition d'annulation</h2>
+        <hr>
+        <p>Pour un remboursement intégral, annulez au moins 24 heures avant la date de début de votre expérience.</p>
+      </div>
+      <% if current_user != @activity.user %>
+      <div class="activity-show-card">
+        <h2>Informations principales</h2>
+        <hr>
+        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <% if current_user != @activity.user %>
+
+      <div class="activity-show-card">
+        <h2>Join the darkness!</h2>
+        <hr>
+        <%= simple_form_for [@activity, @booking] do |f| %>
+          <%= f.input :user_id, as: :hidden %>
+          <%= f.input :activity_id, as: :hidden %>
+          <%= f.input :date %>
+          <div class="flex-between">
+            Participants:
+            <div class="actions">
+              <a class="btn round-bordered incrementer minus disabled" data-offset="-1">-</a>
+              <span id="counter" data-count="1">1</span>
+              <a href="#" class="btn round-bordered incrementer" data-offset="1">+</a>
+            </div>
+          </div>
+          <%= f.input :group_size, label: false, :input_html => { :step => "1", :id => "count", value: 1, hidden: true } %>
+          <%= f.button :submit, "Pay #{@activity.price} €", id: 'submit', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
+      <div class="activity-show-card">
+        <h2>Details</h2>
+        <hr>
+        <div class="flex">
+          <div class="flex">
+            <p>Group size selector</p>
+          </div>
+          <div class="flex ml-3">
+            <%= @activity.price %>€
+          </div>
+        </div>
+      </div>
+      <div class="activity-show-card">
+        <div class="">
+          <h2>Your guide</h2>
+          <hr>
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+          <p><%= @activity.user.email %></p>
+          <div class="">
+            <p><%= @activity.user_id %></p>
+          </div>
+        </div>
+      </div>
+      <% else %>
+        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <% end %>
     </div>
   </div>
+</div>
 
-
- <div class="container mt-5">
-  <div class="row">
-    <div class="col-12">
+<% if current_user == @activity.user %>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
         <h1>My bookings</h1>
-
+        <hr>
         <ul class="list-inline tabs-underlined my-5">
           <li>
             <a href="#" class="tab-underlined active">Pending</a>
@@ -62,51 +144,6 @@
             </div>
           </div>
         <% end %>
-  <% else %>
-
-          <div
-            id="map"
-            style="width: 100%;
-            height: 600px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-          ></div>
-
-          <div class="col-4">
-            <div class="activity-show-card">
-              <h5>Join the darkness!</h5>
-
-                <%= simple_form_for [@activity, @booking] do |f| %>
-                <%= f.input :user_id, as: :hidden %>
-                <%= f.input :activity_id, as: :hidden %>
-                <%= f.input :date %>
-                <%= f.input :group_size %>
-                <%= f.button :submit, 'Book', class: 'btn btn-primary btn-block' %>
-              <% end %>
-              <!-- <form action="activities/1/bookings" method="post"></form> -->
-          </div>
-          <div class="activity-show-card">
-            <h3>Details</h3>
-            <div class="flex">
-              <div class="flex">
-                <p>Group size selector</p>
-              </div>
-              <div class="flex ml-3">
-                <i class="fas fa-euro-sign"></i> <%= @activity.price %>€
-              </div>
-            </div>
-          </div>
-          <div class="activity-show-card">
-            <div class="flex-align">
-              <h3>Meet <%= @activity.user.first_name %></h3>
-              <div class="flex">
-                <%= image_tag ("no_photo.png"), class: "avatar-large" %>
-              </div>
-              <p><%= @activity.user.description %></p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 <% end %>

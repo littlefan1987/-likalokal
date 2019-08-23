@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @booking.activity = @activity
     @booking.user = current_user
     @booking.status = "pending"
-
+    @markers = [{ lat: @activity.latitude, lng: @activity.longitude }]
     if current_user
       if @booking.save
         #redirect_to activity_path(@activity)
